@@ -14,13 +14,14 @@ This project demonstrates how to deploy Jenkins in a Kubernetes environment and 
 
 
 # <a name="features"></a>⚡ Features
-Deployment of Jenkins in a Kubernetes namespace using Helm.
-Persistent storage for Jenkins configuration and data.
-Automated CI/CD pipeline to:
-Build a .NET Core web application.
-Deploy the application to a production namespace.
-Port-forwarding for Jenkins access.
-Configurable resource limits for Pods.
+* Deployment of Jenkins in a Kubernetes namespace using Helm.
+* Persistent storage for Jenkins configuration and data.
+* Automated CI/CD pipeline to:
+   * Build a .NET Core web application.
+   * Deploy the application to a production namespace.
+* Port-forwarding for Jenkins access.
+* Configurable resource limits for Pods.
+
 # <a name="technologies-used"></a>🛠️ Technologies Used
 Orchestration: Kubernetes (Minikube).
 CI/CD: Jenkins.
