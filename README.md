@@ -2,7 +2,7 @@
 This project demonstrates how to deploy Jenkins in a Kubernetes environment and automate the build and deployment of a .NET Core web application.
 
 
-##📚 Table of Contents
+## 📚 Table of Contents
 Features
 Technologies Used
 Setup Instructions
@@ -10,7 +10,7 @@ Pipeline Workflow
 Troubleshooting
 Contributing
 License
-#<a name="features"></a>⚡ Features
+# <a name="features"></a>⚡ Features
 Deployment of Jenkins in a Kubernetes namespace using Helm.
 Persistent storage for Jenkins configuration and data.
 Automated CI/CD pipeline to:
@@ -18,13 +18,13 @@ Build a .NET Core web application.
 Deploy the application to a production namespace.
 Port-forwarding for Jenkins access.
 Configurable resource limits for Pods.
-#<a name="technologies-used"></a>🛠️ Technologies Used
+# <a name="technologies-used"></a>🛠️ Technologies Used
 Orchestration: Kubernetes (Minikube).
 CI/CD: Jenkins.
 Infrastructure: Helm Charts.
 Programming Language: .NET Core for the web application.
 Containerization: Docker.
-#<a name="setup-instructions"></a>🔧 Setup Instructions
+# <a name="setup-instructions"></a>🔧 Setup Instructions
 Prerequisites
 Ensure the following tools are installed:
 
@@ -61,7 +61,7 @@ Access Jenkins locally:
 kubectl port-forward svc/jenkins-service 8080:8080 -n devops
 Open http://localhost:8080 in your browser.
 
-#<a name="pipeline-workflow"></a>📋 Pipeline Workflow
+# <a name="pipeline-workflow"></a>📋 Pipeline Workflow
 Pipeline Stages
 Checkout: Clones the code from GitHub.
 Build: Builds the .NET Core application.
@@ -73,7 +73,7 @@ Save the pipeline in the Jenkinsfile located in the repository root. Open Jenkin
 
 Run the pipeline and verify the logs for each stage.
 
-#<a name="troubleshooting"></a>🛠️ Troubleshooting
+# <a name="troubleshooting"></a>🛠️ Troubleshooting
 Issue: Jenkins Pod stuck in ContainerCreating.
 Solution: Verify Persistent Volume and Claim configurations:
 
@@ -82,9 +82,9 @@ Issue: Jenkins not accessible.
 Solution: Ensure the NodePort service is configured correctly and use port-forwarding.
 Issue: Pipeline fails at deployment stages.
 Solution: Check the Kubernetes resource configurations in the deployments/ directory.
-#<a name="contributing"></a>👥 Contributing
+# <a name="contributing"></a>👥 Contributing
 We welcome contributions! Please fork the repository, make your changes, and submit a pull request.
 
-#<a name="license"></a>📄 License
+# <a name="license"></a>📄 License
 It is an independent individual. No license
 א
