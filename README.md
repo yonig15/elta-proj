@@ -1,6 +1,8 @@
 # **Elta Kubernetes Project 🚀**
 
 This project demonstrates how to deploy Jenkins in a Kubernetes environment and automate the build and deployment of a .NET Core web application.
+[elta Diagram.drawio](https://drive.google.com/file/d/1R77oj6p-_qPXHM5BkxuXg1_ACz3zHnth/view?usp=sharing)
+
 
 [![Kubernetes](https://img.shields.io/badge/Kubernetes-v1.22+-blue.svg)](https://kubernetes.io/)
 [![Helm](https://img.shields.io/badge/Helm-v3.9+-blue.svg)](https://helm.sh/)
