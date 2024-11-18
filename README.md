@@ -23,20 +23,21 @@ This project demonstrates how to deploy Jenkins in a Kubernetes environment and 
 * Configurable resource limits for Pods.
 
 # <a name="technologies-used"></a>🛠️ Technologies Used
-Orchestration: Kubernetes (Minikube).
-CI/CD: Jenkins.
-Infrastructure: Helm Charts.
-Programming Language: .NET Core for the web application.
-Containerization: Docker.
+* Orchestration: Kubernetes (Minikube).
+* CI/CD: Jenkins.
+* Infrastructure: Helm Charts.
+* Programming Language: .NET Core for the web application.
+* Containerization: Docker.
+  
 # <a name="setup-instructions"></a>🔧 Setup Instructions
-Prerequisites
+### Prerequisites
 Ensure the following tools are installed:
-
-Kubernetes cluster (e.g., Minikube).
-kubectl CLI.
-Helm CLI.
-Docker (for building images).
-Access to the GitHub repository: https://github.com/yonig15/elta-proj.git.
+* Kubernetes cluster (e.g., Minikube).
+* kubectl CLI.
+* Helm CLI.
+* Docker (for building images).
+* Access to the GitHub repository: https://github.com/yonig15/elta-proj.git.]
+  
 Steps
 1. Create Namespaces
 Run the following commands:
