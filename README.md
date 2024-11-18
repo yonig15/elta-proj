@@ -3,13 +3,16 @@ This project demonstrates how to deploy Jenkins in a Kubernetes environment and 
 
 
 ## 📚 Table of Contents
-Features
-Technologies Used
-Setup Instructions
-Pipeline Workflow
-Troubleshooting
-Contributing
-License
+1. [Features](#features)
+2. [Technologies Used](#technologies-used)
+3. [Installation](#installation)
+4. [Configuration](#configuration)
+5. [Usage Instructions](#usage-instructions)
+6. [Running Tests](#running-tests)
+7. [Contributions](#contributions)
+8. [License](#license)
+
+
 # <a name="features"></a>⚡ Features
 Deployment of Jenkins in a Kubernetes namespace using Helm.
 Persistent storage for Jenkins configuration and data.
