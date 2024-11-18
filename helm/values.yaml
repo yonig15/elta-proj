@@ -1,0 +1,21 @@
+controller:
+  image: "jenkins/jenkins:2.479.1-jdk17"
+  installPlugins:
+    - kubernetes:latest
+    - workflow-aggregator:latest
+    - git:latest
+    - configuration-as-code:latest
+  resources:
+    requests:
+      memory: "512Mi"
+      cpu: "500m"
+    limits:
+      memory: "1Gi"
+      cpu: "1"
+  service:
+    type: NodePort
+    port: 8080
+persistence:
+  enabled: true
+  size: 8Gi
+  storageClass: ""
