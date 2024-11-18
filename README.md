@@ -1,95 +1,127 @@
-## Elta Kubernetes Project 🚀
+# **Elta Kubernetes Project 🚀**
+
 This project demonstrates how to deploy Jenkins in a Kubernetes environment and automate the build and deployment of a .NET Core web application.
 
+[![Kubernetes](https://img.shields.io/badge/Kubernetes-v1.22+-blue.svg)](https://kubernetes.io/)
+[![Helm](https://img.shields.io/badge/Helm-v3.9+-blue.svg)](https://helm.sh/)
+[![Jenkins](https://img.shields.io/badge/Jenkins-2.479.1-blue.svg)](https://www.jenkins.io/)
 
-## 📚 Table of Contents
+---
+
+## 📚 **Table of Contents**
 1. [Features](#features)
 2. [Technologies Used](#technologies-used)
 3. [Installation](#installation)
-4. [Configuration](#configuration)
-5. [Usage Instructions](#usage-instructions)
-6. [Running Tests](#running-tests)
-7. [Contributions](#contributions)
-8. [License](#license)
+4. [Pipeline Workflow](#pipeline-workflow)
+5. [Troubleshooting](#troubleshooting)
+6. [Contributions](#contributions)
+7. [License](#license)
 
+---
 
-# <a name="features"></a>⚡ Features
-* Deployment of Jenkins in a Kubernetes namespace using Helm.
-* Persistent storage for Jenkins configuration and data.
-* Automated CI/CD pipeline to:
-   * Build a .NET Core web application.
-   * Deploy the application to a production namespace.
-* Port-forwarding for Jenkins access.
-* Configurable resource limits for Pods.
+## <a name="features"></a>⚡ **Features**
+- Deployment of Jenkins in a Kubernetes namespace using Helm.
+- Persistent storage for Jenkins configuration and data.
+- Automated CI/CD pipeline to:
+  - Build a .NET Core web application.
+  - Deploy the application to a production namespace.
+- Port-forwarding for Jenkins access.
+- Configurable resource limits for Pods.
 
-# <a name="technologies-used"></a>🛠️ Technologies Used
-* Orchestration: Kubernetes (Minikube).
-* CI/CD: Jenkins.
-* Infrastructure: Helm Charts.
-* Programming Language: .NET Core for the web application.
-* Containerization: Docker.
-  
-# <a name="setup-instructions"></a>🔧 Setup Instructions
-### Prerequisites
+---
+
+## <a name="technologies-used"></a>🛠️ **Technologies Used**
+- **Orchestration**: Kubernetes (Minikube).
+- **CI/CD**: Jenkins.
+- **Infrastructure**: Helm Charts.
+- **Programming Language**: .NET Core for the web application.
+- **Containerization**: Docker.
+
+---
+
+## <a name="installation"></a>🔧 **Installation**
+
+### **Prerequisites**
 Ensure the following tools are installed:
-* Kubernetes cluster (e.g., Minikube).
-* kubectl CLI.
-* Helm CLI.
-* Docker (for building images).
-* Access to the GitHub repository: https://github.com/yonig15/elta-proj.git.]
-  
-Steps
-1. Create Namespaces
-Run the following commands:
+- Kubernetes cluster (e.g., Minikube).
+- `kubectl` CLI.
+- Helm CLI.
+- Docker (for building images).
+- Access to the GitHub repository: [https://github.com/yonig15/elta-proj.git](https://github.com/yonig15/elta-proj.git).
+
+---
+
+### **Steps**
+
+#### 1. Create Namespaces
+Run the following commands to create the required namespaces:
+```bash
 kubectl apply -f K8s/namespaces/devops-namespace.yaml
 kubectl apply -f K8s/namespaces/prod-namespace.yaml
+```
 
-3. Configure Persistent Storage
-Deploy the persistent volume and claim for Jenkins:
+#### 2. Configure Persistent Storage
+Deploy the Persistent Volume and Persistent Volume Claim for Jenkins:
+
+```bash
 kubectl apply -f K8s/storage/pv.yaml
 kubectl apply -f K8s/storage/pvc.yaml
-Verify:
+```
+Verify the PVC status:
+
+```bash
 kubectl get pvc -n devops
-
-3. Deploy Jenkins
+```
+#### 3. Deploy Jenkins
 Use Helm to install Jenkins:
+
+```bash
 helm install jenkins helm/ -n devops
+```
 Verify the Pod status:
+
+```bash
 kubectl get pods -n devops
+```
 
-5. Expose Jenkins via Service
-Apply the NodePort service:
+#### 4. Expose Jenkins via Service
+Apply the NodePort service to expose Jenkins:
+
+```bash
 kubectl apply -f K8s/services/jenkins-service.yaml -n devops
+```
 
-5. Port-Forward Jenkins
-Access Jenkins locally:
+#### 5. Port-Forward Jenkins
+Access Jenkins locally by forwarding the port:
+
+```bash
 kubectl port-forward svc/jenkins-service 8080:8080 -n devops
+```
+
 Open http://localhost:8080 in your browser.
 
-# <a name="pipeline-workflow"></a>📋 Pipeline Workflow
-Pipeline Stages
-Checkout: Clones the code from GitHub.
-Build: Builds the .NET Core application.
-Dockerize: Creates a Docker image of the application.
-Deploy to DevOps: Deploys the application to the devops namespace.
-Deploy to Production: Deploys the application to the prod namespace.
-Testing the Pipeline
-Save the pipeline in the Jenkinsfile located in the repository root. Open Jenkins, create a new pipeline project, and point it to the GitHub repository.
+## <a name="pipeline-workflow"></a>📋 Pipeline Workflow
+#### Pipeline Stages
+1. Checkout: Clones the code from GitHub.
+2. Build: Builds the .NET Core application.
+3. Dockerize: Creates a Docker image of the application.
+4. Deploy to DevOps: Deploys the application to the devops namespace.
 
-Run the pipeline and verify the logs for each stage.
+## <a name="troubleshooting"></a>🛠️ Troubleshooting
+### Common Issues and Solutions:
+1. Jenkins Pod stuck in ContainerCreating.
 
-# <a name="troubleshooting"></a>🛠️ Troubleshooting
-Issue: Jenkins Pod stuck in ContainerCreating.
-Solution: Verify Persistent Volume and Claim configurations:
-
+* Solution: Verify Persistent Volume and Claim configurations:
+```bash
 kubectl describe pvc jenkins-pvc -n devops
-Issue: Jenkins not accessible.
-Solution: Ensure the NodePort service is configured correctly and use port-forwarding.
-Issue: Pipeline fails at deployment stages.
-Solution: Check the Kubernetes resource configurations in the deployments/ directory.
-# <a name="contributing"></a>👥 Contributing
+```
+2. Jenkins not accessible.
+  * Solution: Ensure the NodePort service is correctly configured and use port-forwarding.
+3. Pipeline fails at deployment stages.
+  * Solution: Check the Kubernetes resource configurations in the deployments/ directory.
+
+## <a name="contributing"></a>👥 Contributing
 We welcome contributions! Please fork the repository, make your changes, and submit a pull request.
 
-# <a name="license"></a>📄 License
-It is an independent individual. No license
-א
+## <a name="license"></a>📄 License
+This project is independent and not licensed under any specific terms.
